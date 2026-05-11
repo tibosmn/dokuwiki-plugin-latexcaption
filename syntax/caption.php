@@ -118,7 +118,7 @@ class syntax_plugin_latexcaption_caption extends \dokuwiki\Extension\SyntaxPlugi
                     $parcount = $this->{'_'.$partype.'_count'};
                 }
                 // Get caption metadata ready for use in reference syntax. Also store in global array for preview to render correctly
-                $this->caption_count[$label] = array($type, $type_counter, $parcount);
+                $this->caption_count[$label] = array($type, $type_counter, $parcount ?? null);
                 $caption_count = $this->caption_count;
             }
 
@@ -258,7 +258,7 @@ class syntax_plugin_latexcaption_caption extends \dokuwiki\Extension\SyntaxPlugi
 
                 // Rendering a caption
                 if ($incaption) {
-                    $markup .= '<'.$captagtype.' class="plugin_latexcaption_caption"><span class="plugin_latexcaption_caption_number"';
+                    $markup = '<'.$captagtype.' class="plugin_latexcaption_caption"><span class="plugin_latexcaption_caption_number"';
                     // Set title to label
                     // if ($label) $markup .= ' title="'.$label.'"';
                     $markup .= '>';
